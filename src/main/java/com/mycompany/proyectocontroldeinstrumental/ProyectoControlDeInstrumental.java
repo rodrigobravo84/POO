@@ -4,7 +4,6 @@ import static com.mycompany.proyectocontroldeinstrumental.CajaDeInstrumental.bus
 import static com.mycompany.proyectocontroldeinstrumental.CajaDeInstrumental.mostrarInstrumentosDeCaja;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class ProyectoControlDeInstrumental {
     
@@ -12,7 +11,7 @@ public class ProyectoControlDeInstrumental {
 
     public static void main(String[] args) {
         
-       ArrayList<String> instrumentos = new ArrayList<>();
+       ArrayList<String>instrumentos = new ArrayList<>();
        ArrayList<CajaDeInstrumental> cajas= new ArrayList<>();
      
        
@@ -220,8 +219,34 @@ public class ProyectoControlDeInstrumental {
        cajas.add(cajaHernia1);
        
        /*Acá va el login*/
+        
+    
+       Scanner scanner = new Scanner(System.in);
+        boolean accesoConcedido = false;
+
+        System.out.println("Bienvenido al sistema de conteo. --Inicio de sesión--");
+
+        while (!accesoConcedido) {
+            System.out.print("Ingrese su usuario: ");
+            String usuarioIngresado = scanner.nextLine();
+
+            System.out.print("Ingrese su contraseña: ");
+            String contraseñaIngresada = scanner.nextLine();
+
+            if ((usuarioIngresado.equals("EnzoRiva") && contraseñaIngresada.equals("1234")) ||
+                (usuarioIngresado.equals("FrancoSoriano") && contraseñaIngresada.equals("5678")) ||
+                (usuarioIngresado.equals("AlejandroBravo") && contraseñaIngresada.equals("4321"))) {
+                System.out.println("Inicio de sesión exitoso.");
+                accesoConcedido = true;
+            } else {
+                System.out.println("Usuario o contraseña incorrectos. Inténtelo de nuevo.");
+           
+            
+            }
+        }
        
-        /*Opciones */
+     
+        /*Opciones*/
         System.out.println("Elija una opcion para la tarea a realizar");
         System.out.println("1. Buscar instrumental específico");
         System.out.println("2. Buscar listado de instrumental de una caja específica");
@@ -231,7 +256,6 @@ public class ProyectoControlDeInstrumental {
         String resp;
         int totalDeElementos=0;
         
-        /*Creacion de switch para eleccion de opciones*/
         switch (opcion){
         /*Buscador de instrumental dentro de la caja*/
             case 1: 
@@ -245,7 +269,6 @@ public class ProyectoControlDeInstrumental {
                         Scanner sc4 = new Scanner (System.in);
                         resp = sc4.nextLine();           
                     }while(resp.equalsIgnoreCase("s"));
-                    
                      break;    
                     
                    

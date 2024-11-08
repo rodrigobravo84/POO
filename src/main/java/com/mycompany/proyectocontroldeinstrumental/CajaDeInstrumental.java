@@ -80,7 +80,7 @@ public abstract class CajaDeInstrumental {
         for (CajaDeInstrumental caja : cajas) {
             for (String detalle : caja.getInstrumentos()) {
                 if (detalle.toLowerCase().contains(instrumento.toLowerCase())) {
-                    System.out.println("El instrumento \"" + detalle + "\" se encuentra en la caja: " + caja.getNombre());
+                    System.out.println("Se encuentran \"" + detalle + "\"  en la caja: " + caja.getNombre());
                     encontrado = true;
                 }
             }
